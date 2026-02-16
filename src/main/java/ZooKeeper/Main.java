@@ -129,10 +129,13 @@ public class Main {
         // write your code here
         Scanner scanner = new Scanner(System.in);
 
-        do {
-            System.out.println("Please enter the number of the habitat you would like to view: ");
+        boolean b = true;
 
-            switch (scanner.nextLine()) {
+        do {
+            System.out.print("Please enter the number of the habitat you would like to view: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
                 case "0":
                     System.out.println(camel);
                     break;
@@ -151,13 +154,17 @@ public class Main {
                 case "5":
                     System.out.println(rabbit);
                     break;
+                case "exit":
+
+                    b = false;
+                    break;
             }
             System.out.println("""
                     ---
                     You've reached the end of the program. To check another habitat, please restart the watcher.
                     """);
-        } while (!Objects.equals(scanner.nextLine(), "exit"));
-        System.out.println("See you later!");
+        } while (b);
 
+        System.out.println("See you later!");
     }
 }
